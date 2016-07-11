@@ -18,6 +18,10 @@ Available variables are listed below, along with default values (see `defaults/m
 
 The port over which Logstash will listen for beats.
 
+    logstash_version: 2.3
+
+Default major version of Logstash to install.
+
     logstash_elasticsearch_hosts:
       - http://localhost:9200
 
