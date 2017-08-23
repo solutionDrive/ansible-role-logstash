@@ -2,8 +2,6 @@
 logstash_version: 2.3
 
 logstash_configuration_files: []
-  #- 01-lumberjack-input.conf
-  #- 30-lumberjack-output.conf
 
 logstash_filter_files:
   - 10-syslog.conf
