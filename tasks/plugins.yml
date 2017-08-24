@@ -1,4 +1,22 @@
 ---
+- name: Try to find installation directory (/opt)
+  stat: path=/opt/logstash
+  register: stat_install_dir_opt
+  when: logstash_install_dir is undefined
+
+- name: Try to find installation directory (/usr/share)
+  stat: path=/usr/share/logstash
+  register: stat_install_dir_usr
+  when: logstash_install_dir is undefined
+
+- name: Try to set installation directory variable to /opt/logstash
+  set_fact: logstash_install_dir="/opt/logstash"
+  when: logstash_install_dir is undefined and stat_install_dir_opt.stat.isdir
+
+- name: Try to set installation directory variable to /usr/share/logstash
+  set_fact: logstash_install_dir="/usr/share/logstash"
+  when: logstash_install_dir is undefined and stat_install_dir_usr.stat.isdir
+
 - name: Get list of installed plugins.
   command: >
     ./bin/logstash-plugin list
