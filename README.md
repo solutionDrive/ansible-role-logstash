@@ -92,6 +92,12 @@ Set this to `no` if you don't want logstash to run on system startup.
 
 A list of Logstash plugins that should be installed.
 
+    logstash_install_dir: /usr/share/logstash
+
+Path to installation directory. Formerly "/opt/logstash" was hardcoded,
+now the default is "/usr/share/logstash".
+
+
 ## Other Notes
 
 If you are seeing high CPU usage from one of the `logstash` processes, and
